@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Album</title>
+    <!-- Google Fonts - Font Options -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@400;700&family=Caveat:wght@400;700&family=Satisfy&family=Cookie&family=Great+Vibes&family=Kalam:wght@300;400;700&family=Patrick+Hand&family=Indie+Flower&family=Shadows+Into+Light&family=Chewy&display=swap" rel="stylesheet">
+    <!-- Preload decoration images for faster loading -->
+    <link rel="preload" href="decorations/2020/decoration.png" as="image">
+    <link rel="preload" href="decorations/2021/decoration.png" as="image">
+    <link rel="preload" href="decorations/2022/decoration.png" as="image">
+    <link rel="preload" href="decorations/2023/decoration.png" as="image">
+    <link rel="preload" href="decorations/2024/decoration.png" as="image">
+    <link rel="preload" href="decorations/2025/decoration.png" as="image">
+    <link rel="preload" href="decorations/2026/decoration.png" as="image">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Floating GIFs -->
+        <div class="floating-gifs">
+            <img src="gifs/bubu_1.gif" class="floating-gif gif-1" alt="Cute animation">
+            <img src="gifs/bubu_2.gif" class="floating-gif gif-2" alt="Cute animation">
+            <img src="gifs/bubu_3.gif" class="floating-gif gif-3" alt="Cute animation">
+            <img src="gifs/bubu_4.gif" class="floating-gif gif-4" alt="Cute animation">
+            <img src="gifs/capy_1.gif" class="floating-gif gif-5" alt="Cute animation">
+            <img src="gifs/capy_2.gif" class="floating-gif gif-6" alt="Cute animation">
+            <img src="gifs/hamster_2.gif" class="floating-gif gif-7" alt="Cute animation">
+            <img src="gifs/kirby_2.gif" class="floating-gif gif-8" alt="Cute animation">
+            <img src="gifs/mario_1.gif" class="floating-gif gif-9" alt="Cute animation">
+            <img src="gifs/meo_moc.gif" class="floating-gif gif-10" alt="Cute animation">
+        </div>
+
+        <!-- Left Decoration -->
+        <div class="side-decoration" id="leftDecoration">
+            <img id="leftDecorationImg" class="decoration-image loaded" src="" alt="Year decoration">
+            <div class="year-label" id="leftYearLabel"></div>
+        </div>
+
+        <!-- Album Section -->
+        <div class="album-section">
+            <h1>
+                <span class="chain-hook-left"></span>
+                <span class="chain-hook-right"></span>
+                Bubu & Dudu's Little Adventures
+            </h1>
+            
+            <button id="addPhotoBtn" class="add-photo-btn">+ Add Photos</button>
+
+            <div class="book-container">
+                <div class="book" id="book">
+                    <!-- Pages will be dynamically added here -->
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="prevBtn">← Previous</button>
+                <span id="pageNumber">Page 1</span>
+                <button id="nextBtn">Next →</button>
+            </div>
+        </div>
+
+        <!-- Right Decoration -->
+        <div class="side-decoration" id="rightDecoration">
+            <img id="rightDecorationImg" class="decoration-image loaded" src="" alt="Year decoration">
+            <div class="year-label" id="rightYearLabel"></div>
+        </div>
+    </div>
+
+    <!-- Upload Modal -->
+    <div id="uploadModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add Photos</h2>
+            <div class="upload-form">
+                <input type="file" id="photoInput" accept="image/*" multiple style="display: none;">
+                <button id="selectFileBtn" class="select-file-btn">Choose Photos</button>
+                <div id="preview" class="preview-container empty"></div>
+                <div id="dateInputsContainer" class="date-inputs-container"></div>
+                <button id="uploadBtn" class="upload-btn">Add to Album</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Date Modal -->
+    <div id="editDateModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditDateModal()">&times;</span>
+            <h2>Edit Photo Date</h2>
+            <div class="upload-form">
+                <div id="editPreview" class="preview-container"></div>
+                <div class="edit-filename"></div>
+                <input type="date" id="editDateInput" class="photo-date-input" required>
+                <button id="saveDateBtn" class="upload-btn">Save Date</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Photo Preview Modal -->
+    <div id="photoPreviewModal" class="modal photo-preview-modal">
+        <span class="close preview-close" onclick="closePhotoPreview()">&times;</span>
+        <div class="preview-image-wrapper">
+            <img id="previewImage" src="" alt="Photo preview">
+        </div>
+        <div id="previewInfo" class="preview-info"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
